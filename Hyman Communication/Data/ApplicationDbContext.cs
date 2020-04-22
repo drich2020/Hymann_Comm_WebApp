@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace Hyman_Communication.Data
+{
+    public class ApplicationDbContext : IdentityDbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<NewsHistory> NewsHistories { get; set; }
+        public DbSet<NewsType> NewsTypes { get; set; }
+        public DbSet<Market> Markets { get; set; }
+
+    }
+}

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    html, body, h1, h2, h3, h4 {
+        font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    .w3-tag, .fa {
+        cursor: pointer
+    }
+
+    .w3-tag {
+        height: 15px;
+        width: 15px;
+        padding: 0;
+        margin-top: 6px
+    }
+</style>
+<body>
+
+
+    <!-- Content -->
+    <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+
+            <!-- Grid -->
+            <div class="w3-row-padding" id="about">
+                <div class="w3-center w3-padding-64">
+                    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
+                </div>
+
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card-4">
+                        <img src="/w3images/team1.jpg" alt="Abigayle" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Abigayle Thomas</h3>
+                            <p class="w3-opacity">Project Manager</p>
+                            <p>
+                            Project Manager, through this role she ensures that a plan for the project is developed, 
+                            the project schedule is established and phases outlined, deliverables are managed according to the outlined schedule, 
+                            tasks are assigned to team members, engineering strategy is established and additional support is provided to each team member in order to execute tasks.
+                            </p>
+                            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card-4">
+                        <img src="/w3images/team2.jpg" alt="Dwyane" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Dwyane Richards</h3>
+                            <p class="w3-opacity">Lead Database Developer</p>
+                            <p>
+                                Lead Database Developer, here he will develop and implement the database systems based on the customer requirements.
+                                Define database tables and dictionaries along with preparing design specifications.
+                                In addition to this he provides supports regarding UX/UI design.
+                            </p>
+                            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card-4">
+                        <img src="/w3images/team3.jpg" alt="Javannie" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Javannie Wright</h3>
+                            <p class="w3-opacity">UX/UI Designer</p>
+                            <p>
+                            Operates as the team’s UX/UI Designer, here he is responsible for the overall appearance and how users will interact with the application. 
+                            This will consist of evaluating the user’s requirements, building and illustrating design ideas and graphic interface elements, as well as testing the applications’ responsiveness.   
+                            </p>
+                            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card-4">
+                        <img src="/w3images/team3.jpg" alt="Cian" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Cian Walters</h3>
+                            <p class="w3-opacity">Lead Business Analyst</p>
+                            <p>
+                            Facilitates as Lead Business Analyst, with this he is responsible for capturing and documenting the business entities’
+                            requirements along with technical, developing data gathering techniques, assisting with defining the project, 
+                            and testing that the solution provided meets the required objectives. Additional support is provided with regards to the development of the applications’ database.
+                            </p>
+                            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-third w3-margin-bottom">
+                    <div class="w3-card-4">
+                        <img src="/w3images/team3.jpg" alt="Chevaughn" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Chevaughn McIntosh</h3>
+                            <p class="w3-opacity">Lead Programmer</p>
+                            <p>Facilitate as Lead Programmer, through this he will 
+                            create, edit and evaluate codes to create the intended software, creation
+                            of the design documentation, and assist with identifying technical requirements.</p>
+                            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                // Slideshow
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function currentDiv(n) {
+                    showDivs(slideIndex = n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    var dots = document.getElementsByClassName("demodots");
+                    if (n > x.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = x.length };
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" w3-white", "");
+                    }
+                    x[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " w3-white";
+                }
+            </script>
+
+</body>
+</html>
