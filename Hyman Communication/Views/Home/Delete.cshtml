@@ -3,5 +3,47 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<div class="header">
+    <h2>Delete Updates</h2>
+</div>
 
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Types of update</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>Please Select type of update to delete</option>
+            <option>Advisory</option>
+            <option>FAQ</option>
+            <option>Technical Issues</option>
+            <option>Training Materials</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Types of Market</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>Please Select Market</option>
+            <option>Anguilla</option>
+            <option>Antigua and Bermuda</option>
+            <option>Bonaire</option>
+            <option>British Virgin Islands</option>
+            <option>Dominica</option>
+            <option>Fiji</option>
+            <option>French Guiana</option>
+            <option>Jamaica</option>
+            <option>Nauru</option>
+            <option>Panama</option>
+            <option>Saint Barth</option>
+            <option>Samoa</option>
+            <option>St. Vincent and Grenadines</option>
+            <option>Vanuatu</option>
+        </select>
+    </div>
+
+    <div class="md-form mt-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+    </div>
+
+
+    <button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block">Cancel</button>
+</form>

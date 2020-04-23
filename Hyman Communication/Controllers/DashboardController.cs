@@ -23,6 +23,11 @@ namespace Hyman_Communication.Controllers
             return View();
         }
 
+        public IActionResult Search()
+        {
+            return View();
+        }
+
         // GET: Dashboard/Create
         public ActionResult Create()
         {

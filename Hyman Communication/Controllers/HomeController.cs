@@ -28,8 +28,32 @@ namespace Hyman_Communication.Controllers
             return View();
         }
 
-
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult Publish()
+        {
+            return View();
+        }
+
+        public IActionResult Views()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
         {
             return View();
         }

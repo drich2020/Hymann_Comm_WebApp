@@ -19,80 +19,6 @@ namespace Hyman_Communication.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Hyman_Communication.Data.Market", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Markets");
-                });
-
-            modelBuilder.Entity("Hyman_Communication.Data.NewsHistory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Market")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("NewsTypeID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NewsTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PostedByEmployeeID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RequestingEmployeeID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("NewsTypeID");
-
-                    b.HasIndex("RequestingEmployeeID");
-
-                    b.ToTable("NewsHistories");
-                });
-
-            modelBuilder.Entity("Hyman_Communication.Data.NewsType", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Market")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("NewsTypes");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -318,21 +244,10 @@ namespace Hyman_Communication.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Lastname")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Employee");
-                });
-
-            modelBuilder.Entity("Hyman_Communication.Data.NewsHistory", b =>
-                {
-                    b.HasOne("Hyman_Communication.Data.NewsType", "NewsType")
-                        .WithMany()
-                        .HasForeignKey("NewsTypeID");
-
-                    b.HasOne("Hyman_Communication.Data.Employee", "PostedByEmployee")
-                        .WithMany()
-                        .HasForeignKey("RequestingEmployeeID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -15,7 +15,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Hyman_Communication
 {
-    public class Startup
+    public class Startup 
     {
         public Startup(IConfiguration configuration)
         {
@@ -30,7 +30,7 @@ namespace Hyman_Communication
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

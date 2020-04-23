@@ -4,40 +4,49 @@
 }
 
 <div class="header">
-    <h2>Blog Name</h2>
+    <h2>Create Updates</h2>
 </div>
 
-<div class="row">
-    <div class="leftcolumn">
-        <div class="card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-        </div>
-        <div class="card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-        </div>
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Types of update</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>Please Select type of update</option>
+            <option>Advisory</option>
+            <option>FAQ</option>
+            <option>Technical Issues</option>
+            <option>Training Materials</option>
+        </select>
     </div>
-    <div class="rightcolumn">
-        <div class="card">
-            <h2>About Me</h2>
-            <div class="fakeimg" style="height:100px;">Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-        </div>
-        <div class="card">
-            <h3>Popular Post</h3>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div>
-        </div>
-        <div class="card">
-            <h3>Follow Me</h3>
-            <p>Some text..</p>
-        </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Types of Market</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>Please Select Market</option>
+            <option>Anguilla</option>
+            <option>Antigua and Bermuda</option>
+            <option>Bonaire</option>
+            <option>British Virgin Islands</option>
+            <option>Dominica</option>
+            <option>Fiji</option>
+            <option>French Guiana</option>
+            <option>Jamaica</option>
+            <option>Nauru</option>
+            <option>Panama</option>
+            <option>Saint Barth</option>
+            <option>Samoa</option>
+            <option>St. Vincent and Grenadines</option>
+            <option>Vanuatu</option>
+        </select>
     </div>
-</div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Update</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">File input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
 
+    <button type="button" class="btn btn-primary btn-lg btn-block">Publish</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block">Save</button>
+</form>

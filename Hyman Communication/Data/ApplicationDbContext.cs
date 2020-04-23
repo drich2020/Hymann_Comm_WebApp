@@ -14,9 +14,6 @@ namespace Hyman_Communication.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<NewsHistory> NewsHistories { get; set; }
-        public DbSet<NewsType> NewsTypes { get; set; }
-        public DbSet<Market> Markets { get; set; }
-
+    
     }
 }
