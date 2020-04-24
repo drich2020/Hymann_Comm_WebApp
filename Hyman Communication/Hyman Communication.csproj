@@ -9,6 +9,18 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20200421234523_AddedEmployee.cs" />
     <Compile Remove="Data\Migrations\20200421234523_AddedEmployee.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424161734_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424161734_AddedHymanDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424162904_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424162904_AddedHymanDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424163252_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424163252_AddedHymanDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424163500_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424163500_AddedHymanDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424163700_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424163700_AddedHymanDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200424164519_AddedHymanDetails.cs" />
+    <Compile Remove="Data\Migrations\20200424164519_AddedHymanDetails.Designer.cs" />
   </ItemGroup>
 
 

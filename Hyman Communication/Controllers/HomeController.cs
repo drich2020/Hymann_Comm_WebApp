@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Hyman_Communication.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Hyman_Communication.Controllers
 {
@@ -30,6 +31,30 @@ namespace Hyman_Communication.Controllers
 
         public IActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(/*object document, */ IFormFile file)
+        {
+            // Extract file name from whatever was posted by browser
+            var fileName = System.IO.Path.GetFileName(file.FileName);
+
+            //// If file with same name exists delete it
+            //if (System.IO.File.Exists(fileName))
+            //{
+            //    System.IO.File.Delete(fileName);
+            //}
+
+            // Create new local file and copy contents of uploaded file
+            using (var localFile = System.IO.File.OpenWrite(fileName))
+            using (var uploadedFile = file.OpenReadStream())
+            {
+                uploadedFile.CopyTo(localFile);
+            }
+
+            ViewBag.Message = "File successfully uploaded";
+
             return View();
         }
 
@@ -65,3 +90,31 @@ namespace Hyman_Communication.Controllers
         }
     }
 }
+
+
+#region Sample Upload Code 
+/*
+ 
+     public async Task UploadFile(IFileListEntry file, string picName)
+        {
+            try
+            {
+                var ms = new MemoryStream();
+                await file.Data.CopyToAsync(ms);
+
+                var path = $"{_env.WebRootPath}\\uploads\\{picName}";
+
+                using(FileStream fs = new FileStream(path, FileMode.Create))
+                {
+                    ms.WriteTo(fs);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+     */
+#endregion

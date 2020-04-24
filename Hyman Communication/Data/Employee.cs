@@ -10,7 +10,6 @@ namespace Hyman_Communication.Data
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
-
         public String CompID { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime DateEmployed { get; set; }
