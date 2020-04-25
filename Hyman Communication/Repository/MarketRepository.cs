@@ -9,34 +9,46 @@ namespace Hyman_Communication.Repository
 {
     public class MarketRepository : IMarketRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public MarketRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(Market entity)
         {
-            throw new NotImplementedException();
+            _db.Markets.Add(entity);
+            return Save();
         }
 
         public bool Delete(Market entity)
         {
-            throw new NotImplementedException();
+            _db.Markets.Remove(entity);
+            return Save();
         }
 
         public ICollection<Market> FinaAll()
         {
-            throw new NotImplementedException();
+            var Market = _db.Markets.ToList();
+            return Market;
         }
 
         public Market FindById(int id)
         {
-            throw new NotImplementedException();
+            var Market = _db.Markets.Find(id);
+            return Market;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(Market entity)
         {
-            throw new NotImplementedException();
+            _db.Markets.Update(entity);
+            return Save();
         }
     }
 }

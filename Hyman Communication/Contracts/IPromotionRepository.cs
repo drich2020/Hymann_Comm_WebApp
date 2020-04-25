@@ -8,6 +8,5 @@ namespace Hyman_Communication.Contracts
 {
     public interface IPromotionRepository : IRepositoryBase<Promotion>
     {
-
     }
 }

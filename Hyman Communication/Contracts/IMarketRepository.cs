@@ -8,6 +8,5 @@ namespace Hyman_Communication.Contracts
 {
     public interface IMarketRepository : IRepositoryBase<Market>
     {
-        ICollection<Market>
     }
 }

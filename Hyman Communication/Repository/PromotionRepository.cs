@@ -9,34 +9,46 @@ namespace Hyman_Communication.Repository
 {
     public class PromotionRepository : IPromotionRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public PromotionRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(Promotion entity)
         {
-            throw new NotImplementedException();
+            _db.Promotions.Add(entity);
+            return Save();
         }
 
         public bool Delete(Promotion entity)
         {
-            throw new NotImplementedException();
+            _db.Promotions.Remove(entity);
+            return Save();
         }
 
         public ICollection<Promotion> FinaAll()
         {
-            throw new NotImplementedException();
+            var Promotion = _db.Promotions.ToList();
+            return Promotion;
         }
 
         public Promotion FindById(int id)
         {
-            throw new NotImplementedException();
+            var Promotion = _db.Promotions.Find(id);
+            return Promotion;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(Promotion entity)
         {
-            throw new NotImplementedException();
+            _db.Promotions.Update(entity);
+            return Save();
         }
     }
 }

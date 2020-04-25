@@ -21,10 +21,10 @@ namespace Hyman_Communication
             {
                 var user = new IdentityUser
                 {
-                    UserName = "admin@localhost",
+                    UserName = "admin",
                     Email = "admin@localhost"
                 };
-                var result = userManager.CreateAsync(user, "password").Result;
+                var result = userManager.CreateAsync(user,"P@ssword123").Result;
                 if(result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user, "Administrator").Wait();
@@ -40,7 +40,7 @@ namespace Hyman_Communication
                 {
                     Name = "Administrator"
                 };
-                var result = roleManager.CreateAsync(role);
+                var result = roleManager.CreateAsync(role).Result;
             }
 
             if (!roleManager.RoleExistsAsync("Employee").Result)
@@ -49,7 +49,7 @@ namespace Hyman_Communication
                 {
                     Name = "Employee"
                 };
-                var result = roleManager.CreateAsync(role);
+                var result = roleManager.CreateAsync(role).Result;
             }
         }
     }

@@ -79,6 +79,7 @@ namespace Hyman_Communication.Areas.Identity.Pages.Account
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
+           
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -94,12 +95,11 @@ namespace Hyman_Communication.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new Employee { UserName = Input.UserName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName};
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _userManager.AddToRoleAsync(user, "Employee").Wait();
-
-                    _logger.LogInformation("User created a new account with password.");
+                        _logger.LogInformation("User created a new account with password.");
 
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);

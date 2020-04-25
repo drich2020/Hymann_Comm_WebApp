@@ -8,39 +8,47 @@ namespace Hyman_Communication.Repository
 {
     public class DocumentRepository : IDocumentRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public DocumentRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(Document entity)
         {
-            throw new NotImplementedException();
+            _db.Documents.Add(entity);
+            return Save();
         }
 
         public bool Delete(Document entity)
         {
-            throw new NotImplementedException();
+            _db.Documents.Remove(entity);
+            return Save();
         }
 
         public ICollection<Document> FinaAll()
         {
-            throw new NotImplementedException();
+            var documents = _db.Documents.ToList();
+            return documents;
         }
 
         public Document FindById(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<Document> GetDocumentNamesByDocument(int id)
-        {
-            throw new NotImplementedException();
+            var documents = _db.Documents.Find(id);
+            return documents;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(Document entity)
         {
-            throw new NotImplementedException();
+            _db.Documents.Update(entity);
+            return Save();
         }
     }
 }

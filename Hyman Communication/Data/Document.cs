@@ -20,7 +20,5 @@ namespace Hyman_Communication.Data
         [ForeignKey("DocumentCategoryId")]
         public DocumentCategory DocumentCategory { get; set; }
         public int DocumentCategoryId { get; set; }
-
-
     }
 }

@@ -18,6 +18,7 @@ namespace Hyman_Communication.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Market> Markets  { get; set; }
+        public DbSet<DocumentCategory> DocumentCategories  { get; set; }
     
     }
 }

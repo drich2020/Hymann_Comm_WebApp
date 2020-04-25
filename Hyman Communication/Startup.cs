@@ -12,6 +12,10 @@ using Hyman_Communication.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Hyman_Communication.Repository;
+using Hyman_Communication.Contracts;
+using Hyman_Communication.Mappings;
+using AutoMapper;
 
 namespace Hyman_Communication
 {
@@ -30,6 +34,15 @@ namespace Hyman_Communication
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            //Adds references for Repository and Contracts to Startup files
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IMarketRepository, MarketRepository>();
+            services.AddScoped<IProductRespository, ProductRepository>();
+            services.AddScoped<IPromotionRepository, PromotionRepository>();
+            services.AddScoped<IDocumentCategoryRepository, DocumentCategoryRepository>();
+
+            services.AddAutoMapper(typeof(Maps));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

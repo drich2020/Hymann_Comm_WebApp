@@ -9,34 +9,46 @@ namespace Hyman_Communication.Repository
 {
     public class ProductRepository : IProductRespository
     {
+        private readonly ApplicationDbContext _db;
+
+        public ProductRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         public bool Create(Product entity)
         {
-            throw new NotImplementedException();
+            _db.Products.Add(entity);
+            return Save();
         }
 
         public bool Delete(Product entity)
         {
-            throw new NotImplementedException();
+            _db.Products.Remove(entity);
+            return Save();
         }
 
         public ICollection<Product> FinaAll()
         {
-            throw new NotImplementedException();
+            var Product = _db.Products.ToList();
+            return Product;
         }
 
         public Product FindById(int id)
         {
-            throw new NotImplementedException();
+            var Product = _db.Products.Find(id);
+            return Product;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(Product entity)
         {
-            throw new NotImplementedException();
+            _db.Products.Update(entity);
+            return Save();
         }
     }
 }

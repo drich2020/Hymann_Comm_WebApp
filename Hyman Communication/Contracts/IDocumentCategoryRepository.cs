@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hyman_Communication.Contracts
 {
-    interface IDocumentCategoryRepository : IRepositoryBase<DocumentCategory>
+    public interface IDocumentCategoryRepository : IRepositoryBase<DocumentCategory>
     {
-
     }
 }

@@ -8,6 +8,6 @@ namespace Hyman_Communication.Data
 {
     public interface IDocumentRepository : IRepositoryBase<Document>
     {
-        ICollection<Document> GetDocumentNamesByDocument(int id);
+        //ICollection<Document> GetDocumentsby
     }
 }
