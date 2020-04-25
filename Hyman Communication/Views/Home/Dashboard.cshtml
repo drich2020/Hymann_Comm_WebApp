@@ -1,137 +1,104 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--<style>
+
+
+<h1>Dashboard</h1>
+
+<style>
+
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 600px}
+    .row.content {
+        height: 600px;
+    }
 
     /* Set gray background color and 100% height */
     .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
+        background-color: #f1f1f1;
+        height: 100%;
     }
 
-
-    </style>-->
-
-    @{
-        ViewData["Title"] = "Dashboard";
+    .well {
+        border: 1px solid;
+        background-color: ghostwhite;
+        padding: 1rem 1.2rem;
+        border-radius: 6px;
     }
 
-    <h1>Dashboard</h1>
+    .col-sm-9 {
+        border: 1px solid;
+        padding: 1rem 1.2rem;
+        border-radius: 6px;
+        background-color: whitesmoke;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <ul class="nav flex-column">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    if (User.IsInRole("Administrator"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Create">Create</a>
 
-    <style>
-
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {
-            height: 600px;
-        }
-
-        /* Set gray background color and 100% height */
-        .sidenav {
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-
-        .well {
-            border: 1px solid;
-            background-color: ghostwhite;
-            padding: 1rem 1.2rem;
-            border-radius: 6px;
-        }
-
-        .col-sm-9 {
-            border: 1px solid;
-            padding: 1rem 1.2rem;
-            border-radius: 6px;
-            background-color: whitesmoke;
-        }
-    </style>
-
-
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row content">
-            <div class="col-sm-3 sidenav hidden-xs">
-                <ul class="nav flex-column">
-
-                    <!--if (SignInManager.IsSignedIn(User)) 
-                    //{
-                    if (User.IsInRole(""))
-                    {-->
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Create">Create</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Search">Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Edit">Edit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Publish">Publish</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Views">View</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Delete">Delete</a>
-                    </li>
-
-                    <!--}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Search">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Edit">Edit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Publish">Publish</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Views">View</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Delete">Delete</a>
+                        </li>
+                    }
                     else
                     {
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Search">Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Views">View</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Search">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="Views">View</a>
+                        </li>
                     }
-                    }-->
+                }
 
+            </ul>
 
+        </div>
+        <br>
 
-                </ul>
-
+        <div class="col-sm-9">
+            <div class="well">
+                <h4>Advisory</h4>
+                <p>12 Days of Christmas &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Christina Pinnock</p>
             </div>
-            <br>
-
-            <div class="col-sm-9">
-                <div class="well">
-                    <h4>Advisory</h4>
-                    <p>12 Days of Christmas &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Christina Pinnock</p>
-                </div>
-                <div class="well">
-                    <h4>FAQ</h4>
-                    <p>12 Days of Christmas &emsp; &emsp; &emsp;  Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
-                </div>
-                <div class="well">
-                    <h4>Technical Issues</h4>
-                    <p>Hyman Loans &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  Anguilla &emsp; &emsp; &emsp; &emsp; &emsp; December 6, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Du'Raul Reid</p>
-                </div>
-                <div class="well">
-                    <h4>Training Material</h4>
-                    <p>Prepaid Life Cycle &emsp; &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; October 2, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
-                </div>
+            <div class="well">
+                <h4>FAQ</h4>
+                <p>12 Days of Christmas &emsp; &emsp; &emsp;  Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
             </div>
-
+            <div class="well">
+                <h4>Technical Issues</h4>
+                <p>Hyman Loans &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  Anguilla &emsp; &emsp; &emsp; &emsp; &emsp; December 6, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Du'Raul Reid</p>
+            </div>
+            <div class="well">
+                <h4>Training Material</h4>
+                <p>Prepaid Life Cycle &emsp; &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; October 2, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
+            </div>
         </div>
 
     </div>
 
-
-</body>
-</html>
+</div>
