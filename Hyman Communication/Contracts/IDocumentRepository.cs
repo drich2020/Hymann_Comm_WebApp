@@ -8,6 +8,7 @@ namespace Hyman_Communication.Data
 {
     public interface IDocumentRepository : IRepositoryBase<Document>
     {
-        //ICollection<Document> GetDocumentsby
+        //ICollection<Document> GetDocumentsbyDocument(int id);
+        bool isExists(int id);
     }
 }

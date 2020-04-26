@@ -1,28 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace leave_management.Models
-{
-    public class LeaveTypeVM
-    {
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        [Display(Name = "Default Number Of Days")]
-        [Range(1,25, ErrorMessage = "Please Enter A Valid Number")]
-        public int DefaultDays { get; set; }
-        [Display(Name="Date Created")]
-        public DateTime? DateCreated { get; set; }
-    }
-
-}
-
-
-
+﻿@model Hyman_Communication.Models.DocumentVM
 @{
     ViewData["Title"] = "Create";
 }
@@ -75,6 +51,10 @@ namespace leave_management.Models
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
 
-    <button type="button" class="btn btn-primary btn-lg btn-block">Publish</button>
-    <button type="button" class="btn btn-secondary btn-lg btn-block">Save</button>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Publish</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block">Cancel</button>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

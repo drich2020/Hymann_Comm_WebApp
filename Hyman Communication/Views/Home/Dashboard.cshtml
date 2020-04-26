@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Hyman_Communication.Models.DocumentVM>
+@{
     ViewData["Title"] = "Dashboard";
 }
 @using Microsoft.AspNetCore.Identity
@@ -80,23 +81,56 @@
         </div>
         <br>
 
+        <!-- check to ensure its pull from db-->
         <div class="col-sm-9">
-            <div class="well">
-                <h4>Advisory</h4>
-                <p>12 Days of Christmas &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Christina Pinnock</p>
-            </div>
-            <div class="well">
-                <h4>FAQ</h4>
-                <p>12 Days of Christmas &emsp; &emsp; &emsp;  Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; December 5, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
-            </div>
-            <div class="well">
-                <h4>Technical Issues</h4>
-                <p>Hyman Loans &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  Anguilla &emsp; &emsp; &emsp; &emsp; &emsp; December 6, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; Du'Raul Reid</p>
-            </div>
-            <div class="well">
-                <h4>Training Material</h4>
-                <p>Prepaid Life Cycle &emsp; &emsp; &emsp; &emsp; Jamaica &emsp; &emsp; &emsp; &emsp; &emsp; October 2, 2019 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Akeelim Jackson</p>
-            </div>
+            <table id="tblData" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateCreated)
+                            </td>
+                        
+                            <td>
+                                <a asp-action="Edit" class="btn btn-warning" asp-route-id="item.Id">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <a asp-action="Details" class="btn btn-info" asp-route-id="item.Id">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                </a>
+                                if (SignInManager.IsSignedIn(User))
+                                {
+                                    if (User.IsInRole("Administrator"))
+                                    {
+                                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="item.Id" onclick="return confirm('Are you sure you want to delete this record?')">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>}
+                                }
+                             </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @section Scripts{
+                <script>
+
+                </script>
+            }
         </div>
 
     </div>
